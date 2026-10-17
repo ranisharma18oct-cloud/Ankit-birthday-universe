@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favourite Person</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f6f0e6;
+  color: #493238;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.cover {
+  min-height: 100vh;
+  padding: 35px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #c2a66b;
+  pointer-events: none;
+}
+
+.eyebrow {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 3px;
+  color: #8a6c50;
+  margin-bottom: 25px;
+}
+
+.photo-frame {
+  width: min(100%, 310px);
+  height: 235px;
+  background: #e9ddd0;
+  border: 7px solid #fffaf2;
+  box-shadow: 0 8px 25px #4b302018;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b7467;
+  font-size: 14px;
+  margin-bottom: 27px;
+}
+
+h1 {
+  font-size: clamp(35px, 9vw, 48px);
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.description {
+  max-width: 320px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #78665d;
+  margin: 0;
+}
+
+button {
+  margin-top: 28px;
+  padding: 15px 28px;
+  background: #702d3b;
+  color: #fff8ee;
+  border: 1px solid #b69a5d;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+
+button:active { transform: scale(.97); }
+button:hover { background: #57212e; }
+
+.signature {
+  margin-top: 28px;
+  color: #9b8259;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+#letter {
+  display: none;
+  max-width: 420px;
+  animation: appear 1s ease both;
+}
+
+#letter p {
+  line-height: 2;
+  color: #78665d;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-height: 700px) {
+  .cover { padding-top: 40px; padding-bottom: 40px; }
+  .photo-frame { height: 170px; }
+}
+</style>
+</head>
+<body>
+<main class="cover">
+  <section id="welcome">
+    <div class="eyebrow">A LITTLE SOMETHING, JUST FOR YOU</div>
+
+    <div class="photo-frame">
+      Your favourite photo goes here ♡
+    </div>
+
+    <h1>For my<br>favourite person.</h1>
+
+    <p class="description">
+      I've made a little something for you.
+      Take your time, my love.
+      There's a piece of my heart in every part of it.
+    </p>
+
+    <button onclick="openLetter()">Open my letter ♡</button>
+
+    <div class="signature">MADE WITH LOVE, JUST FOR YOU</div>
+  </section>
+
+  <section id="letter">
+    <div class="eyebrow">A LETTER FROM MY HEART</div>
+    <h1>Before anything else...</h1>
+    <p>
+      I wish I could be there beside you today.
+      So, until I can, I've made you a little place
+      filled with my words, my voice, and our memories.
+    </p>
+    <p>Happy birthday, my love. ♡</p>
+    <p>And now, let me show you what I've made.</p>
+    <button onclick="alert('Our next surprise is coming soon ♡')">
+      Let's begin ♡
+    </button>
+  </section>
+</main>
+
+<script>
+function openLetter() {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
