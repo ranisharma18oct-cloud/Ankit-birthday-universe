@@ -115,6 +115,27 @@ button:hover { background: #57212e; }
   .cover { padding-top: 40px; padding-bottom: 40px; }
   .photo-frame { height: 170px; }
 }
+  @keyframes photoFade {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
 </style>
 </head>
 <body>
@@ -177,16 +198,35 @@ button:hover { background: #57212e; }
   </button>
 
   <div id="memoryReveal" style="display:none; margin-top:30px;">
-    <h2>Those days we waited for ♡</h2>
 
-    <p class="description">
-      A whole month of waiting. A few days of us. A lifetime of remembering. ❤️
-    </p>
+  <h2>Those days we waited for ♡</h2>
 
+  <p class="description">
+    A whole month of waiting. A few days of us. A lifetime of remembering. ❤️
+  </p>
+
+  <div id="slideshow" style="display:none; position:relative; width:100%; height:70vh; min-height:400px; overflow:hidden; background:#2b1d1e; border-radius:12px;">
+
+    <!-- Our eight photos will go here -->
+
+  </div>
+
+  <div id="songBox" style="margin-top:20px;">
+    <p>Our song ♡</p>
+    <audio id="ourSong" controls preload="none" style="width:100%;">
+      <source src="./guitar_love_acoustic.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div id="finalMessage" style="display:none; margin-top:30px;">
+    <h2>My jaan, my king. ❤️</h2>
     <p>
-      My jaan, those little days together will always have a special place in my heart. ♡
+      A whole month of waiting, just for a few days in your arms.
+      Those memories will always be a little piece of my heart. ♡
     </p>
   </div>
+
+</div>
 </section>
 </main>
 
@@ -211,9 +251,66 @@ function revealMemories() {
   }
 
   document.getElementById("memoryReveal").style.display = "block";
+
+  const song = document.getElementById("ourSong");
+  song.currentTime = 0;
+  song.play().catch(() => {
+    alert("Tap the play button to hear our song, my jaan ❤️");
+  });
+
+  startSlideshow();
+
   document.getElementById("memoryReveal").scrollIntoView({
     behavior: "smooth"
   });
+}
+  function startSlideshow() {
+  const slideshow = document.getElementById("slideshow");
+
+  slideshow.style.display = "block";
+  slideshow.innerHTML = "";
+
+  const photos = [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg",
+    "photo5.jpg",
+    "photo6.jpg",
+    "photo7.jpg",
+    "photo8.jpg"
+  ];
+
+  let index = 0;
+
+  function showPhoto() {
+    slideshow.innerHTML = `
+      <img src="./${photos[index]}"
+        style="
+          position:absolute;
+          width:100%;
+          height:100%;
+          object-fit:contain;
+          opacity:0;
+          animation: photoFade 4s ease-in-out forwards;
+        ">
+    `;
+
+    index++;
+
+    if (index < photos.length) {
+      setTimeout(showPhoto, 4000);
+    } else {
+      setTimeout(() => {
+        document.getElementById("finalMessage").style.display = "block";
+        document.getElementById("finalMessage").scrollIntoView({
+          behavior: "smooth"
+        });
+      }, 4000);
+    }
+  }
+
+  showPhoto();
 }
 </script>
 </body>
