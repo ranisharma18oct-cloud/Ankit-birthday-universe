@@ -156,6 +156,38 @@ button:hover { background: #57212e; }
       Let's begin ♡
     </button>
   </section>
+  <section id="memories" style="display:none;">
+  <div class="eyebrow">CHAPTER TWO · OUR LITTLE WORLD</div>
+
+  <h1>Our Little World ♡</h1>
+
+  <p class="description">
+    Do u remember the Qwin u used to wait for coming from Solan, just to spend 2 days of love with you — and how you used to see her back then?
+  </p>
+
+  <textarea
+    id="memoryAnswer"
+    placeholder="Tell me, my jaan... ❤️"
+    rows="4"
+    style="width:100%; box-sizing:border-box; padding:15px; border-radius:12px; margin:20px 0; font:inherit;"
+  ></textarea>
+
+  <button onclick="revealMemories()">
+    Unlock our memories ♡
+  </button>
+
+  <div id="memoryReveal" style="display:none; margin-top:30px;">
+    <h2>Those days we waited for ♡</h2>
+
+    <p class="description">
+      A whole month of waiting. A few days of us. A lifetime of remembering. ❤️
+    </p>
+
+    <p>
+      My jaan, those little days together will always have a special place in my heart. ♡
+    </p>
+  </div>
+</section>
 </main>
 
 <script>
@@ -163,6 +195,25 @@ function openLetter() {
   document.getElementById("welcome").style.display = "none";
   document.getElementById("letter").style.display = "block";
   window.scrollTo(0, 0);
+}
+  function openMemories() {
+  document.getElementById("letter").style.display = "none";
+  document.getElementById("memories").style.display = "block";
+  window.scrollTo(0, 0);
+}
+
+function revealMemories() {
+  const answer = document.getElementById("memoryAnswer").value.trim();
+
+  if (answer === "") {
+    alert("Tell me something, my jaan ❤️");
+    return;
+  }
+
+  document.getElementById("memoryReveal").style.display = "block";
+  document.getElementById("memoryReveal").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 </script>
 </body>
