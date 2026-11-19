@@ -612,23 +612,302 @@ xmlns="http://www.w3.org/2000/svg">
 </div>
 
 
-<div id="futureScene" style="
-display:none;
-margin-top:35px;
-padding:25px 10px;
-text-align:center;
-">
 
-  <h2 style="
-  color:#e8c58e;
-  font-family:Georgia,serif;
-  font-style:italic;
-  font-size:28px;
-">
-  Let's build a future together. ♡
+<div id="futureScene" style="display:none;">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+#futureScene {
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%,#4a101b 0%,#2a080f 72%,#1b050a 100%);
+  color:#f2d9a6;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+#futureScene * {
+  box-sizing:border-box;
+}
+
+#futureScene .gold-border {
+  position:absolute;
+  inset:12px;
+  border:2px solid #c49a55;
+  pointer-events:none;
+}
+
+#futureScene .gold-border-inner {
+  position:absolute;
+  inset:19px;
+  border:1px solid #9c733d;
+  pointer-events:none;
+}
+
+#futureScene .corner-detail {
+  position:absolute;
+  width:75px;
+  height:75px;
+  z-index:3;
+  pointer-events:none;
+}
+
+#futureScene .corner-top-left {
+  top:12px;
+  left:12px;
+}
+
+#futureScene .corner-top-right {
+  top:12px;
+  right:12px;
+  transform:scaleX(-1);
+}
+
+#futureScene .corner-bottom-left {
+  bottom:12px;
+  left:12px;
+  transform:scaleY(-1);
+}
+
+#futureScene .corner-bottom-right {
+  bottom:12px;
+  right:12px;
+  transform:scale(-1);
+}
+
+#futureScene .flower {
+  position:absolute;
+  width:42%;
+  max-width:230px;
+  height:auto;
+  z-index:2;
+  pointer-events:none;
+}
+
+#futureScene .flower-top {
+  top:-8px;
+  left:-12px;
+}
+
+#futureScene .flower-bottom {
+  bottom:-12px;
+  right:-12px;
+  transform:scaleX(-1);
+}
+
+#futureScene .future-content {
+  position:relative;
+  z-index:4;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:24vh 18px 20vh;
+}
+
+#futureScene .seal {
+  position:relative;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:4px double #e1bd78;
+  background:radial-gradient(circle,#c79a50,#865b25);
+  box-shadow:0 4px 15px #0008,inset 0 0 0 5px #9b6d32;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:65px;
+}
+
+#futureScene .seal span {
+  font-size:44px;
+  color:#fff0c8;
+}
+
+#futureScene .future-first {
+  font-family:'Great Vibes','Brush Script MT',cursive;
+  font-size:clamp(39px,9.5vw,59px);
+  font-weight:400;
+  line-height:1.35;
+  color:#f1d9a5;
+  margin:0 0 28px;
+  text-shadow:0 2px 8px #0005;
+}
+
+#futureScene .future-divider {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:80%;
+  max-width:310px;
+  margin:0 auto 26px;
+  color:#c9a05d;
+  font-size:25px;
+}
+
+#futureScene .future-divider::before,
+#futureScene .future-divider::after {
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#d2aa67);
+}
+
+#futureScene .future-divider::after {
+  background:linear-gradient(90deg,#d2aa67,transparent);
+}
+
+#futureScene .future-name {
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(39px,10vw,57px);
+  font-weight:500;
+  letter-spacing:3px;
+  line-height:1.2;
+  color:#f4dfb5;
+  margin:0;
+  text-shadow:0 2px 8px #0005;
+}
+</style>
+
+<div class="gold-border"></div>
+<div class="gold-border-inner"></div>
+
+<!-- Ornate gold corner details -->
+<svg class="corner-detail corner-top-left" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V25Q3 3 25 3H96 M5 69Q32 68 32 32Q68 32 69 5"
+  stroke="#c69b57" stroke-width="2"/>
+  <path d="M12 85Q35 72 43 52Q60 29 85 12"
+  stroke="#dfbd7d" stroke-width="1.5"/>
+  <path d="M15 55Q30 48 42 15 M55 15Q48 30 15 42"
+  stroke="#b58a4a" stroke-width="1"/>
+</svg>
+
+<svg class="corner-detail corner-top-right" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V25Q3 3 25 3H96 M5 69Q32 68 32 32Q68 32 69 5"
+  stroke="#c69b57" stroke-width="2"/>
+  <path d="M12 85Q35 72 43 52Q60 29 85 12"
+  stroke="#dfbd7d" stroke-width="1.5"/>
+  <path d="M15 55Q30 48 42 15 M55 15Q48 30 15 42"
+  stroke="#b58a4a" stroke-width="1"/>
+</svg>
+
+<svg class="corner-detail corner-bottom-left" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V25Q3 3 25 3H96 M5 69Q32 68 32 32Q68 32 69 5"
+  stroke="#c69b57" stroke-width="2"/>
+  <path d="M12 85Q35 72 43 52Q60 29 85 12"
+  stroke="#dfbd7d" stroke-width="1.5"/>
+  <path d="M15 55Q30 48 42 15 M55 15Q48 30 15 42"
+  stroke="#b58a4a" stroke-width="1"/>
+</svg>
+
+<svg class="corner-detail corner-bottom-right" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V25Q3 3 25 3H96 M5 69Q32 68 32 32Q68 32 69 5"
+  stroke="#c69b57" stroke-width="2"/>
+  <path d="M12 85Q35 72 43 52Q60 29 85 12"
+  stroke="#dfbd7d" stroke-width="1.5"/>
+  <path d="M15 55Q30 48 42 15 M55 15Q48 30 15 42"
+  stroke="#b58a4a" stroke-width="1"/>
+</svg>
+
+<!-- Upper floral arrangement -->
+<svg class="flower flower-top" viewBox="0 0 250 290"
+xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#b68d50" stroke-width="2">
+  <path d="M5 5Q70 75 100 160T210 280"/>
+  <path d="M65 75Q110 20 150 20"/>
+  <path d="M90 120Q40 90 15 110"/>
+</g>
+<g fill="#8e7446">
+  <path d="M65 75Q100 25 150 20Q120 72 65 75Z"/>
+  <path d="M90 120Q40 90 15 110Q40 140 90 120Z"/>
+  <path d="M145 175Q190 130 220 155Q195 190 145 175Z"/>
+</g>
+<g fill="#6b1527" stroke="#a34b55" stroke-width="1.5">
+  <path d="M105 105Q25 45 50 8Q98 30 105 105Z"/>
+  <path d="M105 105Q100 15 160 10Q165 60 105 105Z"/>
+  <path d="M105 105Q175 55 210 95Q170 140 105 105Z"/>
+  <path d="M105 105Q155 180 110 215Q70 165 105 105Z"/>
+  <path d="M105 105Q30 150 8 110Q45 75 105 105Z"/>
+</g>
+<circle cx="105" cy="105" r="8" fill="#d3aa63"/>
+<g fill="#f5e8d0" stroke="#c9a66c" stroke-width="1">
+  <circle cx="45" cy="180" r="7"/>
+  <circle cx="59" cy="168" r="7"/>
+  <circle cx="72" cy="182" r="7"/>
+  <circle cx="59" cy="195" r="7"/>
+  <circle cx="45" cy="194" r="7"/>
+  <circle cx="59" cy="182" r="4" fill="#d3aa63"/>
+  <circle cx="155" cy="60" r="6"/>
+  <circle cx="167" cy="50" r="6"/>
+  <circle cx="179" cy="62" r="6"/>
+  <circle cx="167" cy="74" r="6"/>
+  <circle cx="167" cy="62" r="3" fill="#d3aa63"/>
+</g>
+</svg>
+
+<!-- Lower floral arrangement -->
+<svg class="flower flower-bottom" viewBox="0 0 250 290"
+xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#b68d50" stroke-width="2">
+  <path d="M5 5Q70 75 100 160T210 280"/>
+  <path d="M65 75Q110 20 150 20"/>
+  <path d="M90 120Q40 90 15 110"/>
+</g>
+<g fill="#8e7446">
+  <path d="M65 75Q100 25 150 20Q120 72 65 75Z"/>
+  <path d="M90 120Q40 90 15 110Q40 140 90 120Z"/>
+  <path d="M145 175Q190 130 220 155Q195 190 145 175Z"/>
+</g>
+<g fill="#6b1527" stroke="#a34b55" stroke-width="1.5">
+  <path d="M105 105Q25 45 50 8Q98 30 105 105Z"/>
+  <path d="M105 105Q100 15 160 10Q165 60 105 105Z"/>
+  <path d="M105 105Q175 55 210 95Q170 140 105 105Z"/>
+  <path d="M105 105Q155 180 110 215Q70 165 105 105Z"/>
+  <path d="M105 105Q30 150 8 110Q45 75 105 105Z"/>
+</g>
+<circle cx="105" cy="105" r="8" fill="#d3aa63"/>
+<g fill="#f5e8d0" stroke="#c9a66c" stroke-width="1">
+  <circle cx="45" cy="180" r="7"/>
+  <circle cx="59" cy="168" r="7"/>
+  <circle cx="72" cy="182" r="7"/>
+  <circle cx="59" cy="195" r="7"/>
+  <circle cx="45" cy="194" r="7"/>
+  <circle cx="59" cy="182" r="4" fill="#d3aa63"/>
+  <circle cx="155" cy="60" r="6"/>
+  <circle cx="167" cy="50" r="6"/>
+  <circle cx="179" cy="62" r="6"/>
+  <circle cx="167" cy="74" r="6"/>
+  <circle cx="167" cy="62" r="3" fill="#d3aa63"/>
+</g>
+</svg>
+
+<div class="future-content">
+
+  <div class="seal">
+    <span>⚜</span>
+  </div>
+
+  <h2 class="future-first">
+    Then, let's build a<br>
+    future together...
+  </h2>
+
+  <div class="future-divider">⚜</div>
+
+  <h2 class="future-name">
+    FOR ANKANI ♡
   </h2>
 
 </div>
+</div>
+
 </div>
 
 </div>
