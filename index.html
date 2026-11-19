@@ -289,29 +289,125 @@ margin-top:25px;
 
 </div>
 
-<div id="proposalScene" style="display:none; margin-top:35px;">
 
-  <h2 style="
-  color:#e8c58e;
-  font-family:Georgia,serif;
-  font-style:italic;
-  ">
-    Will you marry me, my darling? ♡
-  </h2>
+<div id="proposalScene" style="
+display:none;
+position:fixed;
+inset:0;
+z-index:9999;
+overflow-y:auto;
+background:#f8edda;
+color:#641c2c;
+text-align:center;
+padding:65px 18px 45px;
+font-family:Georgia,serif;
+">
 
-  <button onclick="answerProposal()" style="
-  background:#4a2028;
-  color:#f2d39b;
-  border:1px solid #c49a55;
-  border-radius:30px;
-  padding:14px 25px;
-  margin-top:15px;
-  font-size:16px;
+  <div style="
+  position:fixed;
+  inset:9px;
+  border:2px solid #b58a4b;
+  pointer-events:none;
+  "></div>
+
+  <div style="
+  position:fixed;
+  inset:15px;
+  border:1px solid #c9a66c;
+  pointer-events:none;
+  "></div>
+
+  <div style="
+  position:absolute;
+  top:20px;
+  left:0;
+  width:100%;
+  font-size:35px;
+  color:#9b6b3c;
   ">
-    A thousand times, YES! ❤️
-  </button>
+    ♛
+  </div>
+
+  <div style="
+  position:absolute;
+  top:75px;
+  left:0;
+  width:100%;
+  font-size:34px;
+  color:#a47742;
+  ">
+    ♡  ♡
+  </div>
+
+  <div style="
+  position:absolute;
+  top:150px;
+  left:0;
+  font-size:55px;
+  line-height:1.5;
+  color:#782b39;
+  text-align:left;
+  ">
+    ❀<br>🌿<br>❁
+  </div>
+
+  <div style="
+  position:absolute;
+  top:150px;
+  right:0;
+  font-size:55px;
+  line-height:1.5;
+  color:#782b39;
+  text-align:right;
+  ">
+    ❁<br>🌿<br>❀
+  </div>
+
+  <div style="
+  margin-top:115px;
+  position:relative;
+  z-index:2;
+  ">
+
+    <h2 style="
+    font-family:'Brush Script MT','Segoe Script',cursive;
+    font-size:clamp(39px,10vw,55px);
+    font-weight:normal;
+    font-style:italic;
+    line-height:1.35;
+    color:#641c2c;
+    margin:15px 0 35px;
+    ">
+      Will you marry me,<br>
+      my darling? ♡
+    </h2>
+
+    <div style="
+    color:#a47742;
+    font-size:30px;
+    margin:25px 0 55px;
+    ">
+      ─── ❀ ───
+    </div>
+
+    <button onclick="answerProposal()" style="
+    background:#701d30;
+    color:#f8dfaa;
+    border:2px solid #bd914e;
+    border-radius:12px;
+    padding:17px 27px;
+    font-family:Georgia,serif;
+    font-size:17px;
+    box-shadow:0 5px 14px #5b263333;
+    margin-top:10px;
+    ">
+      A thousand times, YES! ❤️
+    </button>
+
+  </div>
 
 </div>
+
 <div id="futureScene" style="
 display:none;
 margin-top:35px;
