@@ -377,17 +377,28 @@ margin:0 auto;
     if (index < photos.length) {
       setTimeout(showPhoto, 4000);
     } else {
-      setTimeout(() => {
-        document.getElementById("finalMessage").style.display = "block";
-        document.getElementById("finalMessage").scrollIntoView({
-          behavior: "smooth"
+    setTimeout(() => {
+        document.getElementById("nextChapter").style.display = "block";
+        document.getElementById("nextChapter").scrollIntoView({
+            behavior: "smooth"
         });
-      }, 4000);
+    }, 4000);
+}
     }
   }
 
   showPhoto();
 }
+ function openFinalMessage() {
+    document.getElementById("nextChapter").style.display = "none";
+
+    const finalMessage = document.getElementById("finalMessage");
+    finalMessage.style.display = "block";
+
+    finalMessage.scrollIntoView({
+        behavior: "smooth"
+    });
+} 
 </script>
 </body>
 </html>
