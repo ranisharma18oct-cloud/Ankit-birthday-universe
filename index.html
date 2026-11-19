@@ -1022,7 +1022,15 @@ margin:0 auto;
 }
 
 function answerProposal() {
-  document.getElementById("wishText").style.display = "none";
+  document.getElementById("finalMessage").style.display = "none";
+  document.getElementById("nextChapter").style.display = "none";
+  document.getElementById("memories").style.display = "none";
+
+  const future = document.getElementById("futureScene");
+  future.style.display = "block";
+
+  window.scrollTo(0, 0);
+}
   document.getElementById("proposalScene").style.display = "none";
 
   const future = document.getElementById("futureScene");
