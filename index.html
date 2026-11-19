@@ -434,30 +434,12 @@ margin:0 auto;
     });
 } 
   function showProposal() {
-  const wish = "I'll always be the one cheering for you the loudest, believing in you and celebrating every little victory.";
+  document.getElementById("proposalScene").style.display = "block";
 
-  function revealQuestion() {
-    document.getElementById("proposalScene").style.display = "block";
-    document.getElementById("proposalScene").scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-  }
-
-  if ("speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
-
-    const speech = new SpeechSynthesisUtterance(wish);
-    speech.rate = 0.9;
-    speech.pitch = 1;
-
-    speech.onend = revealQuestion;
-    speech.onerror = revealQuestion;
-
-    window.speechSynthesis.speak(speech);
-  } else {
-    revealQuestion();
-  }
+  document.getElementById("proposalScene").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 }
 
 function answerProposal() {
