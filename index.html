@@ -331,82 +331,286 @@ font-family:Georgia,serif;
   <div style="
   position:absolute;
   top:75px;
-  left:0;
-  width:100%;
-  font-size:34px;
-  color:#a47742;
-  ">
-    ♡  ♡
-  </div>
 
-  <div style="
+<div id="proposalScene" style="display:none;">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500&display=swap');
+
+#proposalScene {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow-y:auto;
+  background:
+    radial-gradient(ellipse at center,#fff9eb 0%,#f7e9d0 75%,#eeddbd 100%);
+  color:#641c2c;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  text-align:center;
+  box-sizing:border-box;
+}
+
+#proposalScene * {
+  box-sizing:border-box;
+}
+
+#proposalScene .outer-frame {
+  position:fixed;
+  inset:9px;
+  border:2px solid #b68b4c;
+  pointer-events:none;
+  z-index:10;
+}
+
+#proposalScene .inner-frame {
+  position:fixed;
+  inset:16px;
+  border:1px solid #d1ae76;
+  pointer-events:none;
+  z-index:10;
+}
+
+#proposalScene .corner {
+  position:fixed;
+  width:75px;
+  height:75px;
+  z-index:11;
+  pointer-events:none;
+}
+
+#proposalScene .tl {top:9px;left:9px;}
+#proposalScene .tr {top:9px;right:9px;transform:scaleX(-1);}
+#proposalScene .bl {bottom:9px;left:9px;transform:scaleY(-1);}
+#proposalScene .br {bottom:9px;right:9px;transform:scale(-1);}
+
+#proposalScene .side-flower {
   position:absolute;
-  top:150px;
-  left:0;
-  font-size:55px;
-  line-height:1.5;
-  color:#782b39;
-  text-align:left;
-  ">
-    ❀<br>🌿<br>❁
-  </div>
+  width:36%;
+  max-width:175px;
+  height:auto;
+  z-index:1;
+  pointer-events:none;
+}
 
-  <div style="
-  position:absolute;
-  top:150px;
-  right:0;
-  font-size:55px;
-  line-height:1.5;
-  color:#782b39;
-  text-align:right;
-  ">
-    ❁<br>🌿<br>❀
-  </div>
+#proposalScene .flower-left {
+  top:0;
+  left:-13px;
+}
 
-  <div style="
-  margin-top:115px;
+#proposalScene .flower-right {
+  bottom:0;
+  right:-13px;
+  transform:scaleX(-1);
+}
+
+#proposalScene .content {
   position:relative;
-  z-index:2;
-  ">
+  z-index:3;
+  min-height:100%;
+  padding:55px 15px 70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
 
-    <h2 style="
-    font-family:'Brush Script MT','Segoe Script',cursive;
-    font-size:clamp(39px,10vw,55px);
-    font-weight:normal;
-    font-style:italic;
-    line-height:1.35;
-    color:#641c2c;
-    margin:15px 0 35px;
-    ">
-      Will you marry me,<br>
-      my darling? ♡
-    </h2>
+#proposalScene .crown {
+  width:75px;
+  height:53px;
+  margin-bottom:5px;
+}
 
-    <div style="
-    color:#a47742;
-    font-size:30px;
-    margin:25px 0 55px;
-    ">
-      ─── ❀ ───
-    </div>
+#proposalScene .rings {
+  width:125px;
+  height:66px;
+  margin-bottom:22px;
+}
 
-    <button onclick="answerProposal()" style="
-    background:#701d30;
-    color:#f8dfaa;
-    border:2px solid #bd914e;
-    border-radius:12px;
-    padding:17px 27px;
-    font-family:Georgia,serif;
-    font-size:17px;
-    box-shadow:0 5px 14px #5b263333;
-    margin-top:10px;
-    ">
-      A thousand times, YES! ❤️
-    </button>
+#proposalScene .question {
+  font-family:'Great Vibes','Brush Script MT',cursive;
+  font-weight:400;
+  font-size:clamp(53px,13vw,72px);
+  line-height:1.22;
+  color:#641c2c;
+  margin:12px 0 25px;
+  text-shadow:0 1px 1px #b98b7433;
+}
 
-  </div>
+#proposalScene .divider-art {
+  width:75%;
+  max-width:290px;
+  height:48px;
+  margin:8px 0 48px;
+}
+
+#proposalScene .yes-button {
+  width:min(82%,390px);
+  min-height:78px;
+  padding:15px 15px;
+  border:3px solid #bd914e;
+  border-radius:17px;
+  background:linear-gradient(145deg,#7c1d32,#5c1025);
+  color:#f9e4b4;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(19px,5vw,25px);
+  font-weight:500;
+  letter-spacing:.3px;
+  box-shadow:
+    0 5px 13px #5b263344,
+    inset 0 1px 2px #ffffff30;
+  cursor:pointer;
+  position:relative;
+  z-index:4;
+}
+</style>
+
+<div class="outer-frame"></div>
+<div class="inner-frame"></div>
+
+<!-- Gold ornamental corners -->
+<svg class="corner tl" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V24Q3 3 24 3H96 M4 70Q30 68 30 30Q68 30 70 4 M5 48Q48 48 48 5"
+  stroke="#b68b4c" stroke-width="2"/>
+  <path d="M13 85Q30 75 38 58Q55 38 85 13"
+  stroke="#c5a36c" stroke-width="1.5"/>
+  <circle cx="30" cy="30" r="3" fill="#b68b4c"/>
+</svg>
+<svg class="corner tr" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V24Q3 3 24 3H96 M4 70Q30 68 30 30Q68 30 70 4 M5 48Q48 48 48 5"
+  stroke="#b68b4c" stroke-width="2"/>
+  <path d="M13 85Q30 75 38 58Q55 38 85 13"
+  stroke="#c5a36c" stroke-width="1.5"/>
+  <circle cx="30" cy="30" r="3" fill="#b68b4c"/>
+</svg>
+<svg class="corner bl" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V24Q3 3 24 3H96 M4 70Q30 68 30 30Q68 30 70 4 M5 48Q48 48 48 5"
+  stroke="#b68b4c" stroke-width="2"/>
+  <path d="M13 85Q30 75 38 58Q55 38 85 13"
+  stroke="#c5a36c" stroke-width="1.5"/>
+  <circle cx="30" cy="30" r="3" fill="#b68b4c"/>
+</svg>
+<svg class="corner br" viewBox="0 0 100 100" fill="none">
+  <path d="M3 96V24Q3 3 24 3H96 M4 70Q30 68 30 30Q68 30 70 4 M5 48Q48 48 48 5"
+  stroke="#b68b4c" stroke-width="2"/>
+  <path d="M13 85Q30 75 38 58Q55 38 85 13"
+  stroke="#c5a36c" stroke-width="1.5"/>
+  <circle cx="30" cy="30" r="3" fill="#b68b4c"/>
+</svg>
+
+<!-- Left botanical arrangement -->
+<svg class="side-flower flower-left" viewBox="0 0 190 480"
+xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#8b754a" stroke-width="2">
+  <path d="M8 5C35 95 5 160 60 235S60 380 15 470"/>
+  <path d="M40 100Q90 65 105 35 M48 160Q5 120 2 90"/>
+  <path d="M53 245Q115 195 145 210 M45 335Q0 290 3 265"/>
+</g>
+<g fill="#7e7545">
+  <path d="M40 100Q75 43 105 35Q100 83 40 100Z"/>
+  <path d="M48 160Q5 120 2 90Q45 112 48 160Z"/>
+  <path d="M53 245Q115 195 145 210Q105 260 53 245Z"/>
+  <path d="M45 335Q0 290 3 265Q52 292 45 335Z"/>
+</g>
+<g fill="#781c32" stroke="#641c2c" stroke-width="1.5">
+  <path d="M82 100Q25 50 48 8Q83 16 82 100Z"/>
+  <path d="M82 100Q86 20 137 12Q139 57 82 100Z"/>
+  <path d="M82 100Q143 65 165 108Q127 143 82 100Z"/>
+  <path d="M82 100Q130 157 90 190Q53 154 82 100Z"/>
+  <path d="M82 100Q23 140 8 108Q34 72 82 100Z"/>
+</g>
+<circle cx="82" cy="100" r="9" fill="#d6aa5d"/>
+<g fill="#fff4dc" stroke="#d4b98d" stroke-width="1">
+  <circle cx="25" cy="205" r="5"/>
+  <circle cx="35" cy="190" r="4"/>
+  <circle cx="43" cy="208" r="5"/>
+  <circle cx="30" cy="222" r="4"/>
+  <circle cx="17" cy="218" r="4"/>
+  <circle cx="80" cy="285" r="5"/>
+  <circle cx="90" cy="270" r="4"/>
+  <circle cx="99" cy="286" r="5"/>
+  <circle cx="85" cy="302" r="4"/>
+</g>
+</svg>
+
+<!-- Right botanical arrangement -->
+<svg class="side-flower flower-right" viewBox="0 0 190 480"
+xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="#8b754a" stroke-width="2">
+  <path d="M8 5C35 95 5 160 60 235S60 380 15 470"/>
+  <path d="M40 100Q90 65 105 35 M48 160Q5 120 2 90"/>
+  <path d="M53 245Q115 195 145 210 M45 335Q0 290 3 265"/>
+</g>
+<g fill="#7e7545">
+  <path d="M40 100Q75 43 105 35Q100 83 40 100Z"/>
+  <path d="M48 160Q5 120 2 90Q45 112 48 160Z"/>
+  <path d="M53 245Q115 195 145 210Q105 260 53 245Z"/>
+  <path d="M45 335Q0 290 3 265Q52 292 45 335Z"/>
+</g>
+<g fill="#781c32" stroke="#641c2c" stroke-width="1.5">
+  <path d="M82 100Q25 50 48 8Q83 16 82 100Z"/>
+  <path d="M82 100Q86 20 137 12Q139 57 82 100Z"/>
+  <path d="M82 100Q143 65 165 108Q127 143 82 100Z"/>
+  <path d="M82 100Q130 157 90 190Q53 154 82 100Z"/>
+  <path d="M82 100Q23 140 8 108Q34 72 82 100Z"/>
+</g>
+<circle cx="82" cy="100" r="9" fill="#d6aa5d"/>
+<g fill="#fff4dc" stroke="#d4b98d" stroke-width="1">
+  <circle cx="25" cy="205" r="5"/>
+  <circle cx="35" cy="190" r="4"/>
+  <circle cx="43" cy="208" r="5"/>
+  <circle cx="30" cy="222" r="4"/>
+  <circle cx="17" cy="218" r="4"/>
+  <circle cx="80" cy="285" r="5"/>
+  <circle cx="90" cy="270" r="4"/>
+  <circle cx="99" cy="286" r="5"/>
+  <circle cx="85" cy="302" r="4"/>
+</g>
+</svg>
+
+<div class="content">
+
+  <!-- Crown -->
+  <svg class="crown" viewBox="0 0 100 65" fill="none">
+    <path d="M12 19L29 35L48 5L68 35L88 18L82 51H18Z"
+    fill="#c69a51" stroke="#986d31" stroke-width="2"/>
+    <path d="M18 53H82" stroke="#986d31" stroke-width="4"/>
+    <circle cx="12" cy="17" r="5" fill="#d8b56e"/>
+    <circle cx="48" cy="5" r="5" fill="#d8b56e"/>
+    <circle cx="88" cy="17" r="5" fill="#d8b56e"/>
+  </svg>
+
+  <!-- Interlocking rings -->
+  <svg class="rings" viewBox="0 0 150 75" fill="none">
+    <circle cx="59" cy="38" r="25" stroke="#b68b4c" stroke-width="4"/>
+    <circle cx="91" cy="38" r="25" stroke="#b68b4c" stroke-width="4"/>
+    <path d="M47 19L59 11L71 19" stroke="#d4ad6c" stroke-width="2"/>
+    <path d="M79 19L91 11L103 19" stroke="#d4ad6c" stroke-width="2"/>
+  </svg>
+
+  <h2 class="question">
+    Will you<br>
+    marry me,<br>
+    my darling? ♡
+  </h2>
+
+  <!-- Gold floral divider -->
+  <svg class="divider-art" viewBox="0 0 300 48" fill="none">
+    <path d="M5 24H112 M188 24H295"
+    stroke="#b68b4c" stroke-width="2"/>
+    <path d="M150 5Q130 22 150 43Q170 22 150 5Z"
+    stroke="#b68b4c" stroke-width="2"/>
+    <path d="M126 24Q150 3 174 24Q150 45 126 24Z"
+    stroke="#b68b4c" stroke-width="2"/>
+    <circle cx="150" cy="24" r="5" fill="#b68b4c"/>
+  </svg>
+
+  <button class="yes-button" onclick="answerProposal()">
+    A thousand times, YES! ❤️
+  </button>
 
 </div>
+</div>
+
 
 <div id="futureScene" style="
 display:none;
