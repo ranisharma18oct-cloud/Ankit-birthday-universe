@@ -433,6 +433,45 @@ margin:0 auto;
         behavior: "smooth"
     });
 } 
+  function showProposal() {
+  const wish = "I'll always be the one cheering for you the loudest, believing in you and celebrating every little victory.";
+
+  function revealQuestion() {
+    document.getElementById("proposalScene").style.display = "block";
+    document.getElementById("proposalScene").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(wish);
+    speech.rate = 0.9;
+    speech.pitch = 1;
+
+    speech.onend = revealQuestion;
+    speech.onerror = revealQuestion;
+
+    window.speechSynthesis.speak(speech);
+  } else {
+    revealQuestion();
+  }
+}
+
+function answerProposal() {
+  document.getElementById("wishText").style.display = "none";
+  document.getElementById("proposalScene").style.display = "none";
+
+  const future = document.getElementById("futureScene");
+  future.style.display = "block";
+
+  future.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
 </script>
 </body>
 </html>
